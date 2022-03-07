@@ -4,7 +4,9 @@
   "description": "Show Authentication Application",
   "main": "server.js",
   "scripts": {
-    "server": "nodemon server.js"
+    "server": "nodemon server.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\" "
   },
   "author": "AKM",
   "license": "ISC",

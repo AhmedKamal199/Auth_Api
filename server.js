@@ -7,7 +7,7 @@ const app = express();
 app.use(cors("*"));
 
 app.use("/api/auth", require("./routes/api/auth"));
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
 
 const run = async () => {
   try {
