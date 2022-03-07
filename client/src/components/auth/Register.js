@@ -1,13 +1,19 @@
 import React, { useState, useEffect } from "react";
-
+const axios = require("axios");
 const Register = () => {
   useEffect(() => {
     document.title = "Register";
   });
+  const github = () => {
+    console.log("From github");
+    axios.get("http://localhost:5000/api/auth/register/github");
+  };
   return (
     <form className="form contact-form">
       <h1>
-        <a>github</a>
+        <a href="#" onClick={github}>
+          github
+        </a>
       </h1>
       <br />
       <h5>Register</h5>
