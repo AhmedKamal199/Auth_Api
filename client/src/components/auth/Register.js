@@ -56,7 +56,7 @@ const Register = ({ history }) => {
         <input
           type="text"
           className="form-input username-input"
-          onChnage={e => setname(e.target.value)}
+          onChange={e => setname(e.target.value)}
         />
       </div>
       <div className="form-row">
@@ -66,7 +66,7 @@ const Register = ({ history }) => {
         <input
           type="email"
           className="form-input username-input"
-          onChnage={e => setemail(e.target.value)}
+          onChange={e => setemail(e.target.value)}
         />
       </div>
 
@@ -77,7 +77,7 @@ const Register = ({ history }) => {
         <input
           type="password"
           className="form-input password-input"
-          onChnage={e => setpassword(e.target.value)}
+          onChange={e => setpassword(e.target.value)}
         />
       </div>
       <div className="text-small form-alert">there was an error</div>
