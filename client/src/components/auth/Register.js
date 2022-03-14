@@ -21,20 +21,27 @@ const Register = ({ history }) => {
   };
 
   const OnSumbit = async e => {
+    // axios.post().then(
+
+    // ).catch(
+
+    // )
+    // try {
+    //   cnost result = await axios.post()
+    // } catch (error) {
+
+    // }
+
     e.preventDefault();
     try {
-      const data = axios.post(
-        `${url}/auth/register`,
-        {
-          name,
-          email,
-          password
-        }.then(() => {
-          localStorage.setItem("token", data.token);
-          Authenticate(true);
-          console.log(isAuthenticated);
-        })
-      );
+      const data = await axios.post(`${url}/auth/register`, {
+        name,
+        email,
+        password
+      });
+      localStorage.setItem("token", data.token);
+      Authenticate(true);
+      console.log(isAuthenticated);
     } catch (error) {
       setmsg(error.msg);
     }
