@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import url from "../../config";
 // impor
 import axios from "axios";
-import { useHistory } from "react-router"
-const history = useHistory();
+import { useHistory } from "react-router-dom";
 const Register = ({ history }) => {
+  const history = useHistory();
   const [name, setname] = useState("");
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
