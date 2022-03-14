@@ -20,7 +20,7 @@ const Register = ({ history }) => {
     axios.get(`${url}/auth/register/github`);
   };
 
-  const OnSumbit = async e => {
+  const OnSubmit = async e => {
     // axios.post().then(
 
     // ).catch(
@@ -34,7 +34,7 @@ const Register = ({ history }) => {
 
     e.preventDefault();
     try {
-      console.log("Onsubmit")
+      console.log("Onsubmit");
       const data = await axios.post(`${url}/auth/register`, {
         name,
         email,
@@ -90,7 +90,7 @@ const Register = ({ history }) => {
         />
       </div>
       <div className="text-small form-alert">there was an error</div>
-      <button type="submit" className="btn btn-block" onClick={OnSumbit}>
+      <button type="submit" className="btn btn-block" onClick={OnSubmit}>
         submit
       </button>
     </form>
