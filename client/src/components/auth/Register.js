@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import url from "../../config";
 // impor
-const axios = require("axios");
+import axios from "axios";
 const Register = ({ history }) => {
   const [name, setname] = useState("");
   const [email, setemail] = useState("");
@@ -20,7 +20,7 @@ const Register = ({ history }) => {
     axios.get(`${url}/auth/register/github`);
   };
 
-  const OnSubmit = async e => {
+  const OnSumbit = async e => {
     // axios.post().then(
 
     // ).catch(
@@ -90,7 +90,7 @@ const Register = ({ history }) => {
         />
       </div>
       <div className="text-small form-alert">there was an error</div>
-      <button type="submit" className="btn btn-block" onClick={OnSubmit}>
+      <button type="submit" className="btn btn-block" onClick={OnSumbit}>
         submit
       </button>
     </form>
