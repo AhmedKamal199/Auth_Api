@@ -34,6 +34,7 @@ const Register = ({ history }) => {
 
     e.preventDefault();
     try {
+      console.log("Onsubmit")
       const data = await axios.post(`${url}/auth/register`, {
         name,
         email,
