@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import url from "../../config";
 // impor
 import axios from "axios";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 const Register = () => {
-  const history = useHistory();
+  const history = useNavigate;
   const [name, setname] = useState("");
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
@@ -14,7 +14,7 @@ const Register = () => {
     document.title = "Register";
     console.log(isAuthenticated);
     if (isAuthenticated) {
-      history.push("/");
+      history("/");
     }
   }, [isAuthenticated]);
   const github = () => {
