@@ -2,12 +2,12 @@ import React, { useState, useEffect } from "react";
 import url from "../../config";
 // impor
 const axios = require("axios");
-const [name, setname] = useState("");
-const [email, setemail] = useState("");
-const [password, setpassword] = useState("");
-const [Msg, setmsg] = useState("");
-const [isAuthenciated, Authenticate] = useState(false);
 const Register = ({ history }) => {
+  const [name, setname] = useState("");
+  const [email, setemail] = useState("");
+  const [password, setpassword] = useState("");
+  const [Msg, setmsg] = useState("");
+  const [isAuthenciated, Authenticate] = useState(false);
   useEffect(() => {
     document.title = "Register";
 
