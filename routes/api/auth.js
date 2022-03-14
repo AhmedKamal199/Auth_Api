@@ -9,6 +9,7 @@ require("dotenv").config();
 
 router.post("/register", (req, res) => {
   const { name, email, password } = req.body;
+  console.log("Here");
   if (!name || !email || !password) {
     res.status(400).json({ msg: "Please Enter all filed" });
   }
