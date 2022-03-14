@@ -2,6 +2,11 @@ import React, { useState, useEffect } from "react";
 import url from "../../config";
 // impor
 const axios = require("axios");
+const [name, setname] = useState("");
+const [email, setemail] = useState("");
+const [password, setpassword] = useState("");
+const [Msg, setmsg] = useState("");
+const [isAuthenciated, Authenticate] = useState(false);
 const Register = ({ history }) => {
   useEffect(() => {
     document.title = "Register";
@@ -14,11 +19,6 @@ const Register = ({ history }) => {
     console.log("From github");
     axios.get(`${url}/auth/register/github`);
   };
-  const [name, setname] = useState("");
-  const [email, setemail] = useState("");
-  const [password, setpassword] = useState("");
-  const [Msg, setmsg] = useState("");
-  const [isAuthenciated, Authenticate] = useState(false);
 
   const OnSumbit = async e => {
     e.preventDefault();
