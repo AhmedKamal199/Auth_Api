@@ -28,7 +28,7 @@ router.post("/register", (req, res) => {
         const token = jwt.sign({ id: user.id }, jwt_s, {
           expiresIn: 3600
         });
-
+        console.log("From server");
         res.json({
           token,
           user: {

@@ -40,6 +40,7 @@ const Register = ({ history }) => {
         email,
         password
       });
+      console.log("After post");
       localStorage.setItem("token", data.token);
       Authenticate(true);
       console.log(isAuthenticated);
