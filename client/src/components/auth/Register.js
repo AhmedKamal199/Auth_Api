@@ -47,6 +47,7 @@ const Register = () => {
       Authenticate(true);
       console.log(isAuthenticated);
     } catch (error) {
+      console.log(error);
       setmsg(error.msg);
     }
   };
