@@ -4,7 +4,7 @@ import url from "../../config";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 const Register = () => {
-  const history = useNavigate;
+  const history = useNavigate();
   const [name, setname] = useState("");
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
