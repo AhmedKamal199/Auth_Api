@@ -32,6 +32,7 @@ const Register = ({ history }) => {
         }.then(() => {
           localStorage.setItem("token", data.token);
           Authenticate(true);
+          console.log(isAuthenticated);
         })
       );
     } catch (error) {
