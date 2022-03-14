@@ -9,7 +9,7 @@ app.use(cors("*"));
 app.use(bodyParser.json());
 app.use("/api/auth", require("./routes/api/auth"));
 app.use("/api/hel", require("./routes/api/hel"));
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 5500;
 
 const run = async () => {
   try {
