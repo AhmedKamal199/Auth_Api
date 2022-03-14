@@ -3,7 +3,7 @@ import url from "../../config";
 // impor
 import axios from "axios";
 import { useHistory } from "react-router-dom";
-const Register = ({ history }) => {
+const Register = () => {
   const history = useHistory();
   const [name, setname] = useState("");
   const [email, setemail] = useState("");
