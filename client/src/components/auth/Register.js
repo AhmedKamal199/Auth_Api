@@ -81,7 +81,7 @@ const Register = ({ history }) => {
         />
       </div>
       <div className="text-small form-alert">there was an error</div>
-      <button type="submit" className="btn btn-block" OnClick={OnSumbit}>
+      <button type="submit" className="btn btn-block" onClick={OnSumbit}>
         submit
       </button>
     </form>
