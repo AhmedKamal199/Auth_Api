@@ -10,7 +10,7 @@ const Register = ({ history }) => {
   const [isAuthenciated, Authenticate] = useState(false);
   useEffect(() => {
     document.title = "Register";
-
+    console.log(isAuthenciated);
     if (isAuthenciated) {
       history.push("/");
     }
