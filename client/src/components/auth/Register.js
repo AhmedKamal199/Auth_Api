@@ -7,11 +7,11 @@ const Register = ({ history }) => {
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
   const [Msg, setmsg] = useState("");
-  const [isAuthenciated, Authenticate] = useState(false);
+  const [isAuthenticated, Authenticate] = useState(false);
   useEffect(() => {
     document.title = "Register";
-    console.log(isAuthenciated);
-    if (isAuthenciated) {
+    console.log(isAuthenticated);
+    if (isAuthenticated) {
       history.push("/");
     }
   }, [isAuthenticated]);
