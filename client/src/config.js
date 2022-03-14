@@ -1,3 +1,3 @@
-const url = "http://localhost:5500/api";
+const url = "http://54.37.232.80:5500/api";
 
 export default url;
