@@ -3,6 +3,7 @@ require("dotenv").config();
 
 const jwt_s = process.env.JWT_SECRET;
 function auth(req, res, next) {
+  let aut = false;
   const token = req.header("x-header-token");
 
   if (!token) {
@@ -12,8 +13,9 @@ function auth(req, res, next) {
   try {
     const decoded = jwt.verify(token, jwt_s);
     const { id, name } = decoded;
+    aut = true;
     console.log(decoded)
-    req.user = { id, name };
+    req.user = { id, name, aut };
     next();
   } catch (err) {
     console.log(err);

@@ -60,7 +60,7 @@ const Register = () => {
           github
         </a>
       </h1>
-      <h1 style={{ color: "red", backgroundColor: "yellow" }}>{Msg}</h1>
+      <h1 style={{ color: "red" }}>{Msg}</h1>
       <br />
       <h5>Register</h5>
       <div className="form-row">

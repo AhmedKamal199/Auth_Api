@@ -15,6 +15,9 @@ import {
 
 function App() {
   // const location = useLocation();
+  useEffect(() => {
+    document.title = "Authentication App"
+    })
   const home = (
     <Fragment>
       <AppNavbar />

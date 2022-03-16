@@ -27,7 +27,7 @@ router.post("/register", (req, res) => {
       NewUser.password = hash;
       NewUser.save().then(user => {
         const token = jwt.sign({ id: user.id, name: user.name }, jwt_s, {
-          expiresIn: 3600
+          expiresIn: '30d'
         });
         console.log("From server");
         res.json({
@@ -54,7 +54,7 @@ router.post("/login", (req, res) => {
       if (!isMatch) res.status(401).json({ msg: "Invalid Crediential" });
     });
 
-    const token = jwt.sign({ id: user.id }, jwt_s, { expiresIn: 3600 });
+    const token = jwt.sign({ id: user.id, name: user.name }, jwt_s, { expiresIn: '30d' });
     res.status(200).json({ token, msg: "Done" });
   });
 });
