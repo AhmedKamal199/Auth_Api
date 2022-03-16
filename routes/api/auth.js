@@ -14,7 +14,7 @@ router.post("/register", (req, res) => {
     res.status(400).json({ msg: "Please Enter all filed" });
   }
   User.findOne({ email }).then(user => {
-    if (user) res.status(400).json({ msg: "user already exits" });
+    if (user) res.status(400).json({ msg: "user already token" });
   });
   const NewUser = new User({
     name,
@@ -26,7 +26,7 @@ router.post("/register", (req, res) => {
       if (err) throw err;
       NewUser.password = hash;
       NewUser.save().then(user => {
-        const token = jwt.sign({ id: user.id }, jwt_s, {
+        const token = jwt.sign({ id: user.id, name: user.name }, jwt_s, {
           expiresIn: 3600
         });
         console.log("From server");
