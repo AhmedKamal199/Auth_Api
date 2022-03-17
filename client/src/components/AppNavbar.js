@@ -19,7 +19,9 @@ const AppNavbar = () => {
   const [name, setname] = useState('');
   const [isAut, aut] = useState(false);
   useEffect( async() => {
-  	document.title("Authentication App")
+  	if(isAut){
+      document.title = "Authentication App"
+    }
   	const token = localStorage.getItem("token")
   	console.log(token)
   	const {data} = await axios.get(`${url}/hel`,{
@@ -34,16 +36,16 @@ const AppNavbar = () => {
   const guset = (
   	<>
   		<NavItem>
-            <NavLink href="/Register">Register</NavLink>
+            <NavLink style={{color:"white"}} href="/Register">Register</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink href="/Login">Login</NavLink>
+            <NavLink style={{color:"white"}} href="/Login">Login</NavLink>
           </NavItem>
   	</>
   	);
   const user = (
   	<>
-  		<NavItem>
+  		<NavItem style={{color:"white"}}>
            Welcome {name}
           </NavItem>
   	</>
@@ -57,8 +59,8 @@ const AppNavbar = () => {
       <Collapse isOpen={isOpen} navbar>
         <Nav style={{ marginLeft: "auto", padding: "0 20px" }} navbar>
         {isAut ? user : guset}
-          <NavItem>
-            <NavLink href="#">About</NavLink>
+          <NavItem >
+            <NavLink style={{color:"white"}} href="#">About</NavLink>
           </NavItem>
         </Nav>
       </Collapse>

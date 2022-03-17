@@ -12,7 +12,7 @@ const Register = () => {
   const [isAuthenticated, Authenticate] = useState(false);
   useEffect(() => {
     document.title = "Register";
-  },);
+  },[]);
   const github = () => {
     console.log("From github");
     axios.get(`${url}/auth/register/github`);
