@@ -12,10 +12,8 @@ const Login = () => {
 
   useEffect(() => {
     document.title = "Login";
-    if(isAuthenticated){
-      history("/")
-    }
-  }, [isAuthenticated]);
+   
+  },);
   const onSumbit = async e =>{
     e.preventDefault();
     console.log("onsum")
@@ -29,6 +27,7 @@ const Login = () => {
       const token = localStorage.getItem('token');
       console.log(token);
       Authenticate(true);
+      history("/")
     }catch(error){
       console.log(error);
       console.log(error.response.data.msg);

@@ -12,11 +12,7 @@ const Register = () => {
   const [isAuthenticated, Authenticate] = useState(false);
   useEffect(() => {
     document.title = "Register";
-    console.log(isAuthenticated);
-    if (isAuthenticated) {
-      history("/");
-    }
-  }, [isAuthenticated]);
+  },);
   const github = () => {
     console.log("From github");
     axios.get(`${url}/auth/register/github`);
@@ -45,6 +41,7 @@ const Register = () => {
       console.log("After post");
       localStorage.setItem("token", data.token);
       Authenticate(true);
+      history("/")
       console.log(isAuthenticated);
     } catch (error) {
       console.log(error);
