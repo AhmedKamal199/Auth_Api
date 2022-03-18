@@ -4,7 +4,8 @@ require("dotenv").config();
 const jwt_s = process.env.JWT_SECRET;
 function auth(req, res, next) {
   let aut = false;
-  const token = req.header("x-header-token");
+  const Bearer=  req.header("Authorization");
+  const token = Bearer.split(" ")[1]
 
   if (!token) {
     return res.status(400).json({ msg: "No token" });

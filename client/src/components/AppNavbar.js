@@ -26,13 +26,17 @@ const AppNavbar = () => {
   	console.log(token)
   	const {data} = await axios.get(`${url}/hel`,{
   	  		headers: {
-  	  			"x-header-token" : token
+  	  			Authorization : `Bearer ${token}`
   	  		}})
   	console.log(data.name);
   	setname(data.name);
   	aut(data.aut);
-  }, []);
-
+  }, [isAut]);
+  function logout(){
+    localStorage.removeItem("token")
+    aut(false)
+    console.log("success")
+  }
   const guset = (
   	<>
   		<NavItem>
@@ -45,8 +49,8 @@ const AppNavbar = () => {
   	);
   const user = (
   	<>
-  		<NavItem style={{color:"white"}}>
-           Welcome {name}
+  		<NavItem>
+           <NavLink style={{color:"white"}} href="#">Welcome {name} </NavLink>
           </NavItem>
   	</>
   	)
@@ -54,7 +58,7 @@ const AppNavbar = () => {
   return (
     // <Router>
     <Navbar color="black" dark expand="md">
-      <NavbarBrand href="/">Authentication App</NavbarBrand>
+      <NavbarBrand href="/" style= {{fontSize :"1.5rem"}}>Authentication App</NavbarBrand>
       <NavbarToggler onClick={() => set(!isOpen)} />
       <Collapse isOpen={isOpen} navbar>
         <Nav style={{ marginLeft: "auto", padding: "0 20px" }} navbar>
@@ -62,6 +66,9 @@ const AppNavbar = () => {
           <NavItem >
             <NavLink style={{color:"white"}} href="#">About</NavLink>
           </NavItem>
+          {isAut && <NavItem>
+            <NavLink style={{color:"white"}} href="#" onClick={logout}>Logout</NavLink>
+          </NavItem> }
         </Nav>
       </Collapse>
     </Navbar>
