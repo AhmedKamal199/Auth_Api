@@ -4,8 +4,14 @@ const jwt = require("jsonwebtoken");
 const axios = require("axios");
 const User = require("../../models/User");
 const bcrypt = require("bcrypt");
+const passport = require("passport");
 const jwt_s = process.env.JWT_SECRET;
 require("dotenv").config();
+
+
+//@route post api/auth/register
+//@desc register new user
+//@access private
 
 router.post("/register", (req, res) => {
   const { name, email, password } = req.body;
@@ -42,6 +48,11 @@ router.post("/register", (req, res) => {
     });
   });
 });
+
+//@route post api/auth/login
+//@desc login
+//@access private
+
 router.post("/login", (req, res) => {
   const { email, password } = req.body;
   if (!email || !password) {
@@ -86,4 +97,15 @@ router.get("/oauth-callback", (req, res) => {
     .catch(err => res.status(500).json({ message: err.message }));
 });
 
+
+//@route get api/auth/current
+//@desc get the current user
+//@access private
+
+router.get("/current",
+  passport.authenticate("jwt", {session: false}),
+  (req,res) =>{
+    res.json({msg: "succes"})
+  }
+  )
 module.exports = router;

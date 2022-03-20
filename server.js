@@ -14,6 +14,8 @@ app.use(bodyParser.json());
 
 app.use(passport.initialize());
 
+require("./Config/passport")(passport);
+
 
 // Routes
 app.use("/api/auth", require("./routes/api/auth"));
@@ -30,5 +32,7 @@ const run = async () => {
     console.log(error);
   }
 };
+
+// 
 //bOhbzfeLQ1UamzGP
 run();
