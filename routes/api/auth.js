@@ -70,14 +70,9 @@ router.post("/login", (req, res) => {
   });
 });
 
-const clientId = "5c369149d93c699d4b4a";
-const clientSecrets = "fd17b96b8ead4f115e10862d2ac5b8181750b8a5";
+
 let token = null;
-router.get("/register/github", (req, res) => {
-  res.redirect(
-    `https://github.com/login/oauth/authorize?client_id=${clientId}`
-  );
-});
+
 
 router.get("/oauth-callback", (req, res) => {
   const body = {
@@ -108,4 +103,20 @@ router.get("/current",
     res.json({msg: "succes"})
   }
   )
+
+//@route post the api/auht/github
+//@desc use the github api
+//@ acces private
+
+router.get("/Register/github",
+  passport.authenticate("github",
+  {scope: ["profile", "email"]}));
+router.get("/github/callback", passport.authenticate("github",{session: false},{failureRedirect: "/"}),
+  (req,res)=>{
+    res.send("good")
+  })
+
+router.get("/",(req,res)=>{
+  res.send("You Failed")
+})
 module.exports = router;
